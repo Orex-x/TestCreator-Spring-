@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
+    @Column(name = "id_group")
     private Long id_group;
     @Column(name = "group_name")
     private String name_group;
