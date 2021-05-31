@@ -1,4 +1,4 @@
-package com.example.testcratorspring.group_user;
+package com.example.testcratorspring.user_group;
 
 import com.example.testcratorspring.group.Group;
 import com.example.testcratorspring.user.User;
@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tblUSER_GROUP")
-public class GroupUser {
+public class UserGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +21,10 @@ public class GroupUser {
     @JoinColumn(name = "group_id")
     private Group group;
 
-    public GroupUser() {
+    public UserGroup() {
     }
 
-    public GroupUser(User user, Group group) {
+    public UserGroup(User user, Group group) {
         this.user = user;
         this.group = group;
     }

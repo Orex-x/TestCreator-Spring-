@@ -20,17 +20,24 @@ public class User {
     private String login;
     @Column(name = "user_password")
     private String password;
+    @Column(name = "user_email")
+    private String email;
+    @Column(name = "user_activation_code")
+    private String activationCode;
 
 
     public User() {
     }
 
-    public User(String firstName, String surname, String lastName, String login, String password) {
-        this.first_name = firstName;
+    public User(String first_name, String surname, String last_name, String login,
+                String password, String email, String user_activation_code) {
+        this.first_name = first_name;
         this.surname = surname;
-        this.last_name = lastName;
+        this.last_name = last_name;
         this.login = login;
         this.password = password;
+        this.email = email;
+        this.activationCode = user_activation_code;
     }
 
     public void setId_user(Long id_user) {
@@ -41,11 +48,11 @@ public class User {
         return id_user;
     }
 
-    public String getFirstName() {
+    public String getFirst_name() {
         return first_name;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirst_name(String firstName) {
         this.first_name = firstName;
     }
 
@@ -79,5 +86,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String user_email) {
+        this.email = user_email;
+    }
+
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
     }
 }
