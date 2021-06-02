@@ -19,8 +19,8 @@ public class GroupController {
     }
 
     @RequestMapping(value = "/groups", method = RequestMethod.POST)
-    public void addGroup(@RequestBody Group group){
-        groupService.addGroup(group);
+    public Long addGroup(@RequestBody Group group){
+        return groupService.addGroup(group);
     }
     @RequestMapping(value = "/groups/{Id}" , method = RequestMethod.PUT)
     public void updateGroup(@PathVariable ("Id") String id,
@@ -31,5 +31,10 @@ public class GroupController {
     @RequestMapping(value = "/groups/{Id}", method = RequestMethod.DELETE)
     public void deleteGroup(@PathVariable ("Id") String id){
         groupService.deleteGroup(id);
+    }
+
+    @RequestMapping(value = "/users/invitation/{link}", method = RequestMethod.GET)
+    public Group joinTheGroup(@PathVariable String link){
+        return groupService.getGroupByLink(link);
     }
 }

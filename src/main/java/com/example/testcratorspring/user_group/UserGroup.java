@@ -21,12 +21,16 @@ public class UserGroup {
     @JoinColumn(name = "group_id")
     private Group group;
 
+    @Column(name = "is_admin")
+    private boolean is_admin;
+
     public UserGroup() {
     }
 
-    public UserGroup(User user, Group group) {
+    public UserGroup(User user, Group group, boolean is_admin) {
         this.user = user;
         this.group = group;
+        this.is_admin = is_admin;
     }
 
     public void setId_user_group(Long id_user_group) {
@@ -52,5 +56,13 @@ public class UserGroup {
 
     public void setGroup(Group group) {
         this.group = group;
+    }
+
+    public boolean getIs_admin() {
+        return is_admin;
+    }
+
+    public void setIs_admin(boolean is_admin) {
+        this.is_admin = is_admin;
     }
 }

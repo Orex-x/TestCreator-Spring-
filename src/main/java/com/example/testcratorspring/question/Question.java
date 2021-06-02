@@ -10,24 +10,24 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_question")
     private Long id_question;
-    @Column(name = "question")
+    @Column(name = "title")
     private String title;
     @Column(name = "mark")
     private Integer mark;
     @Column(name = "num_true_mark")
-    private Integer num_true_mark;
+    private Integer numTrueMark;
     @Column(name = "is_check_box")
-    private Boolean is_check_box;
+    private Boolean isCheckBox;
 
     public Question() {
     }
 
 
-    public Question(String title, Integer mark, Integer num_true_mark, Boolean id_check_box) {
+    public Question(String title, Integer mark, Integer numTrueMark, Boolean id_check_box) {
         this.title = title;
         this.mark = mark;
-        this.num_true_mark = num_true_mark;
-        this.is_check_box = id_check_box;
+        this.numTrueMark = numTrueMark;
+        this.isCheckBox = id_check_box;
     }
 
     public void setId_question(Long id_question) {
@@ -54,19 +54,19 @@ public class Question {
         this.mark = mark;
     }
 
-    public Integer getNum_true_mark() {
-        return num_true_mark;
+    public Integer getNumTrueMark() {
+        return numTrueMark;
     }
 
-    public void setNum_true_mark(Integer num_true_mark) {
-        this.num_true_mark = num_true_mark;
+    public void setNumTrueMark(Integer num_true_mark) {
+        this.numTrueMark = num_true_mark;
     }
 
-    public Boolean getIs_check_box() {
-        return is_check_box;
+    public Boolean getIsCheckBox() {
+        return isCheckBox;
     }
 
-    public void setIs_check_box(Boolean id_check_box) {
-        this.is_check_box = id_check_box;
+    public void setIsCheckBox(Boolean id_check_box) {
+        this.isCheckBox = id_check_box;
     }
 }

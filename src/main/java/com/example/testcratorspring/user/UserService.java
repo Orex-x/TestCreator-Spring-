@@ -1,11 +1,17 @@
 package com.example.testcratorspring.user;
 
+import com.example.testcratorspring.group.Group;
 import com.example.testcratorspring.mail.MailService;
+import com.example.testcratorspring.user_group.UserGroup;
+import com.example.testcratorspring.user_group.UserGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -17,8 +23,9 @@ public class UserService {
     @Qualifier("userRepository")
     private UserRepository userRepository;
 
-    //@Autowired
-    //private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    @Qualifier("userGroupRepository")
+    private UserGroupRepository userGroupRepository;
 
     @Autowired
     private MailService mailService;
@@ -34,6 +41,54 @@ public class UserService {
         return userRepository.findByLogin(login);
     }
 
+
+    public List<Group> getAllGroupForUser(User user){
+     /*   Connection connection = null;
+        try {
+            connection = DriverManager.getConnection(
+                    "jdbc:sqlserver://HOME-PC\\\\MSSQLSERVER;databasename=TestCreator",
+                    "justuser",
+                    "IWantSleep780381"
+            );
+            try {
+                Statement statement = connection.createStatement();
+                String query = "select * from tblUSER_GROUP where [user_id] = " + id;
+                ResultSet resultSet = statement.executeQuery(query);
+
+                while (resultSet.next()){
+
+                }
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+*/
+        List<UserGroup> userGroups = userGroupRepository.findByUser(user);
+        List<Group> groups = new ArrayList<>();
+
+        for (UserGroup g : userGroups) {
+            groups.add(g.getGroup());
+        }
+
+        return groups;
+    }
+
+    public List<UserGroup> getAllUserGroupForUser(User user){
+        return userGroupRepository.findByUser(user);
+    }
+
+    public List<User> getAllUserByGroup(Group group){
+        List<UserGroup> userGroups = userGroupRepository.findByGroup(group);
+        List<User> listU = new ArrayList<>();
+        for (UserGroup us : userGroups) {
+            listU.add(us.getUser());
+        }
+        return listU;
+    }
 
 
     public boolean addUser(User user){

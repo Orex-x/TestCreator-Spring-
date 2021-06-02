@@ -25,8 +25,8 @@ public class QuestionService {
         Question question1 = getQuestion(id).get();
         question1.setTitle(question.getTitle());
         question1.setMark(question.getMark());
-        question1.setNum_true_mark(question.getNum_true_mark());
-        question1.setIs_check_box(question.getIs_check_box());
+        question1.setNumTrueMark(question.getNumTrueMark());
+        question1.setIsCheckBox(question.getIsCheckBox());
         questionRepository.save(question1);
     }
 

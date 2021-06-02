@@ -1,8 +1,11 @@
 package com.example.testcratorspring.user;
 
+import com.example.testcratorspring.group.Group;
+import com.example.testcratorspring.user_group.UserGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -26,6 +29,22 @@ public class UserController {
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     public boolean addUser(@RequestBody User user){
         return userService.addUser(user);
+    }
+
+    @RequestMapping(value = "/users/findAllGroups", method = RequestMethod.POST)
+    public List<Group> getAllGroups(@RequestBody User user){
+        return userService.getAllGroupForUser(user);
+    }
+
+    @RequestMapping(value = "/users/findAllUserByGroup", method = RequestMethod.POST)
+    public List<User> getAllUserByGroup(@RequestBody Group group){
+        return userService.getAllUserByGroup(group);
+    }
+
+
+    @RequestMapping(value = "/users/findAllUserGroups", method = RequestMethod.POST)
+    public List<UserGroup> getAllUserGroups(@RequestBody User user){
+        return userService.getAllUserGroupForUser(user);
     }
 
     @RequestMapping(value = "/users/{Id}" , method = RequestMethod.PUT)

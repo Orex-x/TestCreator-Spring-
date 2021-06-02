@@ -24,9 +24,9 @@ public class AnswerService {
 
     public void addAnswer(String id, Answer answer){
         Answer answer1 = getAnswer(id).get();
-        answer1.setGroup_name(answer.getGroup_name());
+        answer1.setGroupName(answer.getGroupName());
         answer1.setTitle(answer.getTitle());
-        answer1.setIs_true(answer.getIs_true());
+        answer1.setIsTrue(answer.getIsTrue());
 
         answerRepository.save(answer1);
     }
