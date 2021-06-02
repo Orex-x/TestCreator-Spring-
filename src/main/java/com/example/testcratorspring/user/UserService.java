@@ -120,6 +120,7 @@ public class UserService {
         user1.setLast_name(user.getLast_name());
         user1.setLogin(user.getLogin());
         user1.setPassword(user.getPassword());
+        user1.setTests(user.getTests());
         userRepository.save(user1);
     }
 

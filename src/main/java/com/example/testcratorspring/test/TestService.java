@@ -23,6 +23,8 @@ public class TestService {
     public void addTest(String id, Test test){
         Test test1 = getTest(id).get();
         test1.setTitle(test.getTitle());
+        test1.setUsers(test.getUsers());
+        test1.setQuestions(test.getQuestions());
         testRepository.save(test1);
     }
 

@@ -1,6 +1,7 @@
 package com.example.testcratorspring.question;
 
 import com.example.testcratorspring.answer.Answer;
+import com.example.testcratorspring.test.Test;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -27,6 +28,9 @@ public class Question {
     @JoinTable(name = "tblQUESTION_ANSWER", joinColumns = @JoinColumn(name = "question_id"),
         inverseJoinColumns = @JoinColumn(name = "answer_id"))
     private Set<Answer> answers = new HashSet<>();
+
+    @ManyToMany(mappedBy = "questions")
+    private Set<Test> tests = new HashSet<>();
 
     public Question() {
     }
@@ -79,6 +83,14 @@ public class Question {
         this.isCheckBox = id_check_box;
     }
 
+    public Set<Test> getTests() {
+        return tests;
+    }
+
+    public void setTests(Set<Test> tests) {
+        this.tests = tests;
+    }
+
     public Set<Answer> getAnswers() {
         return answers;
     }
@@ -95,6 +107,17 @@ public class Question {
     public void removeAnswer(Answer answer){
         this.answers.remove(answer);
         answer.getQuestions().add(this);
+
+    }
+
+    public void addQuestion(Test test){
+        this.tests.add(test);
+        test.getQuestions().add(this);
+    }
+
+    public void removeQuestion(Test test){
+        this.tests.remove(test);
+        test.getQuestions().remove(this);
 
     }
 

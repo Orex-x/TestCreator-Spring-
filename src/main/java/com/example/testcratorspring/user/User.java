@@ -1,6 +1,12 @@
 package com.example.testcratorspring.user;
 
+import com.example.testcratorspring.answer.Answer;
+import com.example.testcratorspring.question.Question;
+import com.example.testcratorspring.test.Test;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tblUSER")
@@ -24,6 +30,11 @@ public class User {
     private String email;
     @Column(name = "user_activation_code")
     private String activationCode;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "tblAUTHOR", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "test_id"))
+    private Set<Test> tests = new HashSet<>();
 
 
     public User() {
@@ -102,5 +113,22 @@ public class User {
 
     public void setActivationCode(String activationCode) {
         this.activationCode = activationCode;
+    }
+
+    public Set<Test> getTests() {
+        return tests;
+    }
+
+    public void setTests(Set<Test> tests) {
+        this.tests = tests;
+    }
+    public void addTest(Test test){
+        this.tests.add(test);
+        test.getUsers().add(this);
+    }
+
+    public void removeTest(Test test){
+        this.tests.remove(test);
+        test.getUsers().remove(this);
     }
 }
