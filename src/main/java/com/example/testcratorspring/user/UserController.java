@@ -1,12 +1,14 @@
 package com.example.testcratorspring.user;
 
 import com.example.testcratorspring.group.Group;
+import com.example.testcratorspring.test.Test;
 import com.example.testcratorspring.user_group.UserGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 public class UserController {
@@ -40,7 +42,6 @@ public class UserController {
     public List<User> getAllUserByGroup(@RequestBody Group group){
         return userService.getAllUserByGroup(group);
     }
-
 
     @RequestMapping(value = "/users/findAllUserGroups", method = RequestMethod.POST)
     public List<UserGroup> getAllUserGroups(@RequestBody User user){

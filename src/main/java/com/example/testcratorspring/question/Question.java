@@ -83,7 +83,18 @@ public class Question {
         this.isCheckBox = id_check_box;
     }
 
-    public Set<Test> getTests() {
+    /* @Override
+    public String toString() {
+        return "Question{" +
+                "id_question=" + id_question +
+                ", title='" + title + '\'' +
+                ", mark=" + mark +
+                ", numTrueAnswer=" + numTrueAnswer +
+                ", isCheckBox=" + isCheckBox +
+                ", answers=" + answers +
+                '}';
+    }*/
+    /*        public Set<Test> getTests() {
         return tests;
     }
 
@@ -91,13 +102,6 @@ public class Question {
         this.tests = tests;
     }
 
-    public Set<Answer> getAnswers() {
-        return answers;
-    }
-
-    public void setAnswers(Set<Answer> answers) {
-        this.answers = answers;
-    }
 
     public void addAnswer(Answer answer){
         this.answers.add(answer);
@@ -109,7 +113,6 @@ public class Question {
         answer.getQuestions().add(this);
 
     }
-
     public void addQuestion(Test test){
         this.tests.add(test);
         test.getQuestions().add(this);
@@ -119,6 +122,13 @@ public class Question {
         this.tests.remove(test);
         test.getQuestions().remove(this);
 
+    }*/
+
+    public Set<Answer> getAnswers() {
+        return answers;
     }
 
+    public void setAnswers(Set<Answer> answers) {
+        this.answers = answers;
+    }
 }

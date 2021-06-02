@@ -115,6 +115,9 @@ public class User {
         this.activationCode = activationCode;
     }
 
+
+
+
     public Set<Test> getTests() {
         return tests;
     }
@@ -122,7 +125,7 @@ public class User {
     public void setTests(Set<Test> tests) {
         this.tests = tests;
     }
-    public void addTest(Test test){
+   /* public void addTest(Test test){
         this.tests.add(test);
         test.getUsers().add(this);
     }
@@ -130,5 +133,5 @@ public class User {
     public void removeTest(Test test){
         this.tests.remove(test);
         test.getUsers().remove(this);
-    }
+    }*/
 }

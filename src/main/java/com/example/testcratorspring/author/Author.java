@@ -55,4 +55,5 @@ public class Author {
     public void setUser(User user) {
         this.user = user;
     }
+
 }

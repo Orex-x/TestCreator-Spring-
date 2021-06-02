@@ -2,6 +2,7 @@ package com.example.testcratorspring.user;
 
 import com.example.testcratorspring.group.Group;
 import com.example.testcratorspring.mail.MailService;
+import com.example.testcratorspring.test.Test;
 import com.example.testcratorspring.user_group.UserGroup;
 import com.example.testcratorspring.user_group.UserGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @Transactional

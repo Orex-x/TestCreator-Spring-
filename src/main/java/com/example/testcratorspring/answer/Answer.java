@@ -65,7 +65,16 @@ public class Answer {
         this.isTrue = is_true;
     }
 
-    public Set<Question> getQuestions() {
+   /*   @Override
+    public String toString() {
+        return "Answer{" +
+                "id_answer=" + id_answer +
+                ", title='" + title + '\'' +
+                ", groupName='" + groupName + '\'' +
+                ", isTrue=" + isTrue +
+                '}';
+    }*/
+   /* public Set<Question> getQuestions() {
         return questions;
     }
 
@@ -81,8 +90,6 @@ public class Answer {
     public void removeQuestion(Question question){
         this.questions.remove(question);
         question.getAnswers().add(this);
-
-    }
-
+    }*/
 
 }

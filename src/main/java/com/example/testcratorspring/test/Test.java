@@ -53,6 +53,17 @@ public class Test {
         this.title = title;
     }
 
+    /* @Override
+    public String toString() {
+        return "Test{" +
+                "id_test=" + id_test +
+                ", title='" + title + '\'' +
+                ", questions=" + questions +
+                '}';
+    }
+*/
+    /*
+
     public Set<User> getUsers() {
         return users;
     }
@@ -61,13 +72,6 @@ public class Test {
         this.users = users;
     }
 
-    public Set<Question> getQuestions() {
-        return questions;
-    }
-
-    public void setQuestions(Set<Question> questions) {
-        this.questions = questions;
-    }
 
     public void addQuestion(Question question){
         this.questions.add(question);
@@ -78,7 +82,6 @@ public class Test {
         this.questions.remove(question);
         question.getTests().remove(this);
     }
-
     public void addUser(User user){
         this.getUsers().add(user);
         user.getTests().add(this);
@@ -88,4 +91,15 @@ public class Test {
         this.questions.remove(user);
         user.getTests().add(this);
     }
+*/
+
+    public Set<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Set<Question> questions) {
+        this.questions = questions;
+    }
+
+
 }

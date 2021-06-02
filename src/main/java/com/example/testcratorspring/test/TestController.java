@@ -1,7 +1,9 @@
 package com.example.testcratorspring.test;
+import com.example.testcratorspring.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,10 +23,12 @@ public class TestController {
     public void addTest(@RequestBody Test test){
         testService.addTest(test);
     }
+
+
     @RequestMapping(value = "/tests/{Id}" , method = RequestMethod.PUT)
     public void updateTest(@PathVariable ("Id") String id,
                            @RequestBody Test test){
-        testService.addTest(id, test);
+        testService.updateTest(id, test);
     }
 
     @RequestMapping(value = "/tests/{Id}", method = RequestMethod.DELETE)

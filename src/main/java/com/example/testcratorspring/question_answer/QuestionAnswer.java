@@ -56,4 +56,6 @@ public class QuestionAnswer {
     public void setAnswer(Answer answer) {
         this.answer = answer;
     }
+
+
 }

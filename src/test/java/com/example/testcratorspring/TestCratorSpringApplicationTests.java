@@ -25,9 +25,9 @@ class TestCratorSpringApplicationTests {
         Answer answer1 = new Answer("title2", "answer1", true);
         Answer answer2 = new Answer("title3", "answer1", true);
         Question question = new Question("tite1", 1,1,true);
-        question.addAnswer(answer);
-        question.addAnswer(answer1);
-        question.addAnswer(answer2);
+        //question.addAnswer(answer);
+        //question.addAnswer(answer1);
+        //question.addAnswer(answer2);
         questionRepository.save(question);
 
 

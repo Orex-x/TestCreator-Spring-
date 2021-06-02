@@ -55,4 +55,13 @@ public class GroupTest {
     public void setTest(Test test) {
         this.test = test;
     }
+
+    @Override
+    public String toString() {
+        return "GroupTest{" +
+                "id_group_test=" + id_group_test +
+                ", group=" + group +
+                ", test=" + test +
+                '}';
+    }
 }

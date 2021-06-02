@@ -68,4 +68,5 @@ public class Group {
     public void setInvitationLink(String invitation_link) {
         this.invitationLink = invitation_link;
     }
+
 }
