@@ -1,6 +1,10 @@
 package com.example.testcratorspring.question;
 
+import com.example.testcratorspring.answer.Answer;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tblQUESTION")
@@ -14,19 +18,24 @@ public class Question {
     private String title;
     @Column(name = "mark")
     private Integer mark;
-    @Column(name = "num_true_mark")
-    private Integer numTrueMark;
+    @Column(name = "num_true_answer")
+    private Integer numTrueAnswer;
     @Column(name = "is_check_box")
     private Boolean isCheckBox;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "tblQUESTION_ANSWER", joinColumns = @JoinColumn(name = "question_id"),
+        inverseJoinColumns = @JoinColumn(name = "answer_id"))
+    private Set<Answer> answers = new HashSet<>();
 
     public Question() {
     }
 
 
-    public Question(String title, Integer mark, Integer numTrueMark, Boolean id_check_box) {
+    public Question(String title, Integer mark, Integer numTrueAnswer, Boolean id_check_box) {
         this.title = title;
         this.mark = mark;
-        this.numTrueMark = numTrueMark;
+        this.numTrueAnswer = numTrueAnswer;
         this.isCheckBox = id_check_box;
     }
 
@@ -54,12 +63,12 @@ public class Question {
         this.mark = mark;
     }
 
-    public Integer getNumTrueMark() {
-        return numTrueMark;
+    public Integer getNumTrueAnswer() {
+        return numTrueAnswer;
     }
 
-    public void setNumTrueMark(Integer num_true_mark) {
-        this.numTrueMark = num_true_mark;
+    public void setNumTrueAnswer(Integer num_true_mark) {
+        this.numTrueAnswer = num_true_mark;
     }
 
     public Boolean getIsCheckBox() {
@@ -69,4 +78,24 @@ public class Question {
     public void setIsCheckBox(Boolean id_check_box) {
         this.isCheckBox = id_check_box;
     }
+
+    public Set<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(Set<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public void addAnswer(Answer answer){
+        this.answers.add(answer);
+        answer.getQuestions().add(this);
+    }
+
+    public void removeAnswer(Answer answer){
+        this.answers.remove(answer);
+        answer.getQuestions().add(this);
+
+    }
+
 }

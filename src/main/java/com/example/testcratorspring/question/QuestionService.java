@@ -15,17 +15,22 @@ public class QuestionService {
     }
 
     public Optional<Question> getQuestion(String id){
-        return questionRepository.findById(Long.parseLong(id));
+      try{
+          return questionRepository.findById(Long.parseLong(id));
+      }catch (NumberFormatException e){
+
+      }
+       return null;
     }
-    public void addQuestion(Question question){
-        questionRepository.save(question);
+    public Question addQuestion(Question question){
+        return questionRepository.save(question);
     }
 
     public void addQuestion(String id, Question question){
         Question question1 = getQuestion(id).get();
         question1.setTitle(question.getTitle());
         question1.setMark(question.getMark());
-        question1.setNumTrueMark(question.getNumTrueMark());
+        question1.setNumTrueAnswer(question.getNumTrueAnswer());
         question1.setIsCheckBox(question.getIsCheckBox());
         questionRepository.save(question1);
     }

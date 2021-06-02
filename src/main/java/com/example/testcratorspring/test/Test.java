@@ -13,6 +13,8 @@ public class Test {
     @Column(name = "title")
     private String title;
 
+    
+
     public Test(String title) {
         this.title = title;
     }

@@ -23,8 +23,8 @@ public class QuestionController {
     }
 
     @RequestMapping(value = "/questions", method = RequestMethod.POST)
-    public void addQuestion(@RequestBody Question question){
-        questionService.addQuestion(question);
+    public Question addQuestion(@RequestBody Question question){
+        return questionService.addQuestion(question);
     }
     @RequestMapping(value = "/questions/{Id}" , method = RequestMethod.PUT)
     public void updateQuestion(@PathVariable ("Id") String id,

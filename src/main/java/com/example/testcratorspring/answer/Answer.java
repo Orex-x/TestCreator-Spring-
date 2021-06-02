@@ -1,6 +1,10 @@
 package com.example.testcratorspring.answer;
 
+import com.example.testcratorspring.question.Question;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tblANSWER")
@@ -16,6 +20,9 @@ public class Answer {
     private String groupName;
     @Column(name = "is_true")
     private Boolean isTrue;
+
+    @ManyToMany(mappedBy = "answers")
+    private Set<Question> questions = new HashSet<>();
 
     public Answer() {
     }
@@ -57,4 +64,25 @@ public class Answer {
     public void setIsTrue(Boolean is_true) {
         this.isTrue = is_true;
     }
+
+    public Set<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Set<Question> questions) {
+        this.questions = questions;
+    }
+
+    public void addQuestion(Question question){
+        this.questions.add(question);
+        question.getAnswers().add(this);
+    }
+
+    public void removeQuestion(Question question){
+        this.questions.remove(question);
+        question.getAnswers().add(this);
+
+    }
+
+
 }
