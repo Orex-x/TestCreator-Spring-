@@ -38,7 +38,6 @@ public class AuthorService {
         List<Author> authors = authorRepository.findByUser(user);
         List<Test> tests = new ArrayList<>();
         for(Author author : authors){
-
             tests.add(author.getTest());
         }
         return tests;

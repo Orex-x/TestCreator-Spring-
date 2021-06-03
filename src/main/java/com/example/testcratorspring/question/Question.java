@@ -24,7 +24,7 @@ public class Question {
     @Column(name = "is_check_box")
     private Boolean isCheckBox;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE})
     @JoinTable(name = "tblQUESTION_ANSWER", joinColumns = @JoinColumn(name = "question_id"),
         inverseJoinColumns = @JoinColumn(name = "answer_id"))
     private Set<Answer> answers = new HashSet<>();

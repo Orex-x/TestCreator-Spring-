@@ -25,7 +25,7 @@ public class GroupController {
     @RequestMapping(value = "/groups/{Id}" , method = RequestMethod.PUT)
     public void updateGroup(@PathVariable ("Id") String id,
                            @RequestBody Group group){
-        groupService.addGroup(id, group);
+        groupService.updateGroup(id, group);
     }
 
     @RequestMapping(value = "/groups/{Id}", method = RequestMethod.DELETE)

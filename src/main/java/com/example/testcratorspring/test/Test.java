@@ -1,8 +1,8 @@
 package com.example.testcratorspring.test;
 
-import com.example.testcratorspring.answer.Answer;
 import com.example.testcratorspring.question.Question;
 import com.example.testcratorspring.user.User;
+import com.example.testcratorspring.group.Group;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -15,11 +15,11 @@ public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_test")
-    private Long id_test;
+    private Long idTest;
     @Column(name = "title")
     private String title;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE})
     @JoinTable(name = "tblTEST_QUESTION", joinColumns = @JoinColumn(name = "test_id"),
             inverseJoinColumns = @JoinColumn(name = "question_id"))
     private Set<Question> questions = new HashSet<>();
@@ -27,6 +27,8 @@ public class Test {
     @ManyToMany(mappedBy = "tests")
     private Set<User> users = new HashSet<>();
 
+    @ManyToMany(mappedBy = "tests")
+    private Set<Group> group = new HashSet<>();
 
 
     public Test(String title) {
@@ -36,13 +38,13 @@ public class Test {
     public Test() {
     }
 
-    public void setId_test(Long id_test) {
-        this.id_test = id_test;
+    public void setIdTest(Long id_test) {
+        this.idTest = id_test;
     }
 
 
-    public Long getId_test() {
-        return id_test;
+    public Long getIdTest() {
+        return idTest;
     }
 
     public String getTitle() {

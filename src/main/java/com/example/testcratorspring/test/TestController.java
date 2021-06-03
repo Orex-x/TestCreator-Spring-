@@ -20,8 +20,8 @@ public class TestController {
     }
 
     @RequestMapping(value = "/tests", method = RequestMethod.POST)
-    public void addTest(@RequestBody Test test){
-        testService.addTest(test);
+    public Long addTest(@RequestBody Test test){
+        return testService.addTest(test).getIdTest();
     }
 
 

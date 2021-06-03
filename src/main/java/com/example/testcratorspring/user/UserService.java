@@ -111,7 +111,7 @@ public class UserService {
         return true;
     }
 
-    public void addUser(String id, User user){
+    public User addUser(String id, User user){
         User user1 = getUserbyId(id).get();
         user1.setFirst_name(user.getFirst_name());
         user1.setSurname(user.getSurname());
@@ -119,7 +119,7 @@ public class UserService {
         user1.setLogin(user.getLogin());
         user1.setPassword(user.getPassword());
         user1.setTests(user.getTests());
-        userRepository.save(user1);
+        return userRepository.save(user1);
     }
 
     public void deleteUserbyId(String id){

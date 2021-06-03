@@ -1,16 +1,9 @@
 package com.example.testcratorspring.test;
 import com.example.testcratorspring.answer.Answer;
-import com.example.testcratorspring.author.Author;
-import com.example.testcratorspring.author.AuthorRepository;
 import com.example.testcratorspring.question.Question;
-import com.example.testcratorspring.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -28,13 +21,8 @@ public class TestService {
     }
 
 
-    public void addTest(Test test){
-        Set<Question> qustion = test.getQuestions();
-        Question question = qustion.iterator().next();
-        Set<Answer> answers = question.getAnswers();
-        Answer answer = answers.iterator().next();
-        String AAA = answer.getGroupName();
-        testRepository.save(test);
+    public Test addTest(Test test){
+        return testRepository.save(test);
     }
 
     public void updateTest(String id, Test test){

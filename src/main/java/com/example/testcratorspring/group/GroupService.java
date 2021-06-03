@@ -34,14 +34,14 @@ public class GroupService {
         return groupRepository.findByInvitationLink(link);
     }
 
-    public void addGroup(String id, Group group){
+    public void updateGroup(String id, Group group){
         Group group1 = getGroup(id).get();
         group1.setName(group.getName());
         group1.setPassword(group.getPassword());
         group1.setInvitationLink(group.getInvitationLink());
         group1.setSecurity_status(group.getSecurity_status());
+        group1.setTests(group.getTests());
         groupRepository.save(group1);
-
     }
 
     public void deleteGroup(String id){

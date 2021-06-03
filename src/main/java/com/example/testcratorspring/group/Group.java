@@ -1,6 +1,8 @@
 package com.example.testcratorspring.group;
-
+import com.example.testcratorspring.test.Test;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tblGROUP")
@@ -17,6 +19,12 @@ public class Group {
     private String security_status;
     @Column(name = "invitation_link")
     private String invitationLink;
+
+
+    @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE})
+    @JoinTable(name = "tblGROUP_TEST", joinColumns = @JoinColumn(name = "group_id"),
+            inverseJoinColumns = @JoinColumn(name = "test_id"))
+    private Set<Test> tests = new HashSet<>();
 
 
     public Group(String name, String password, String security_status, String invitationLink) {
@@ -69,4 +77,11 @@ public class Group {
         this.invitationLink = invitation_link;
     }
 
+    public Set<Test> getTests() {
+        return tests;
+    }
+
+    public void setTests(Set<Test> tests) {
+        this.tests = tests;
+    }
 }
