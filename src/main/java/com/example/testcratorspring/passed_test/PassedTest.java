@@ -1,8 +1,15 @@
 package com.example.testcratorspring.passed_test;
 
+import com.example.testcratorspring.answer.Answer;
+import com.example.testcratorspring.passedAnswer.PassedAnswer;
+import com.example.testcratorspring.passed_test_answer.PassedTestAnswer;
+import com.example.testcratorspring.question.Question;
 import com.example.testcratorspring.test.Test;
+import com.example.testcratorspring.user.User;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tblPASSED_TEST")
@@ -17,13 +24,23 @@ public class PassedTest {
     private Test test;
 
     @Column(name = "result")
-    private String result;
+    private Double result;
+
+    @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE})
+    @JoinTable(name = "tblPASSED_TEST_ANSWER", joinColumns = @JoinColumn(name = "passed_test_id"),
+            inverseJoinColumns = @JoinColumn(name = "passed_answer_id"))
+    private Set<PassedAnswer> passedAnswers = new HashSet<>();
+
+
+
+    @ManyToMany(mappedBy = "passedTests")
+    private Set<User> users = new HashSet<>();
 
 
     public PassedTest() {
     }
 
-    public PassedTest(Test test, String result) {
+    public PassedTest(Test test, Double result, Set<PassedTestAnswer> passedTestAnswers) {
         this.test = test;
         this.result = result;
     }
@@ -45,11 +62,19 @@ public class PassedTest {
         this.test = test;
     }
 
-    public String getResult() {
+    public Double getResult() {
         return result;
     }
 
-    public void setResult(String result) {
+    public void setResult(Double result) {
         this.result = result;
+    }
+
+    public Set<PassedAnswer> getPassedAnswers() {
+        return passedAnswers;
+    }
+
+    public void setPassedAnswers(Set<PassedAnswer> passedAnswers) {
+        this.passedAnswers = passedAnswers;
     }
 }

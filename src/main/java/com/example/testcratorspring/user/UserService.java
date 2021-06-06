@@ -2,6 +2,7 @@ package com.example.testcratorspring.user;
 
 import com.example.testcratorspring.group.Group;
 import com.example.testcratorspring.mail.MailService;
+import com.example.testcratorspring.question.Question;
 import com.example.testcratorspring.test.Test;
 import com.example.testcratorspring.user_group.UserGroup;
 import com.example.testcratorspring.user_group.UserGroupRepository;
@@ -119,6 +120,7 @@ public class UserService {
         user1.setLogin(user.getLogin());
         user1.setPassword(user.getPassword());
         user1.setTests(user.getTests());
+        user1.setPassedTests(user.getPassedTests());
         return userRepository.save(user1);
     }
 
@@ -138,5 +140,14 @@ public class UserService {
         user.setActivationCode(null);
         userRepository.save(user);
         return true;
+    }
+
+    public boolean loginIsBusy(String login){
+        Iterable<User> list = userRepository.findAll();
+        for (User u : list) {
+         if(u.getLogin().equals(login))
+             return true;
+        }
+        return false;
     }
 }

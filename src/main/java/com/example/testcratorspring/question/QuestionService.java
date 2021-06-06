@@ -32,7 +32,6 @@ public class QuestionService {
         question1.setMark(question.getMark());
         question1.setNumTrueAnswer(question.getNumTrueAnswer());
         question1.setIsCheckBox(question.getIsCheckBox());
-        //question1.setTests(question.getTests());
         question1.setAnswers(question.getAnswers());
         questionRepository.save(question1);
     }

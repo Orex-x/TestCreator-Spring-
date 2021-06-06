@@ -1,7 +1,6 @@
 package com.example.testcratorspring.user;
 
-import com.example.testcratorspring.answer.Answer;
-import com.example.testcratorspring.question.Question;
+import com.example.testcratorspring.passed_test.PassedTest;
 import com.example.testcratorspring.test.Test;
 
 import javax.persistence.*;
@@ -35,6 +34,11 @@ public class User {
     @JoinTable(name = "tblAUTHOR", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "test_id"))
     private Set<Test> tests = new HashSet<>();
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "tblUSER_PASSED_TEST", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "passed_test_id"))
+    private Set<PassedTest> passedTests = new HashSet<>();
 
 
     public User() {
@@ -125,7 +129,16 @@ public class User {
     public void setTests(Set<Test> tests) {
         this.tests = tests;
     }
-   /* public void addTest(Test test){
+
+    public Set<PassedTest> getPassedTests() {
+        return passedTests;
+    }
+
+    public void setPassedTests(Set<PassedTest> passedTests) {
+        this.passedTests = passedTests;
+    }
+
+    /* public void addTest(Test test){
         this.tests.add(test);
         test.getUsers().add(this);
     }

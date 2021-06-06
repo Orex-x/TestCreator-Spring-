@@ -6,7 +6,7 @@ import com.example.testcratorspring.test.Test;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "id_group_test")
+@Table(name = "tblGROUP_TEST")
 public class GroupTest {
 
     @Id

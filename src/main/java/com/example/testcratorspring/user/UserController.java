@@ -64,6 +64,11 @@ public class UserController {
         userService.deleteUserbyLogin(login);
     }
 
+    @RequestMapping(value = "/users/loginIsBusy/{Login}", method = RequestMethod.GET)
+    public boolean loginIsBusy(@PathVariable ("Login") String login){
+       return userService.loginIsBusy(login);
+    }
+
     @RequestMapping(value = "/users/activation/{code}", method = RequestMethod.GET)
     public boolean activate(@PathVariable String code){
        return userService.activateUser(code);

@@ -24,9 +24,8 @@ public class PassedTestAnswerService {
 
     public void addPassedTestAnswer(String id, PassedTestAnswer passedTestAnswer){
         PassedTestAnswer passedTestAnswer1 = getPassedTestAnswer(id).get();
-        passedTestAnswer1.setAnswer(passedTestAnswer.getAnswer());
+        passedTestAnswer1.setPassedAnswer(passedTestAnswer.getPassedAnswer());
         passedTestAnswer1.setPassedTest(passedTestAnswer.getPassedTest());
-        passedTestAnswer1.setQuestion(passedTestAnswer.getQuestion());
         passedTestAnswerRepository.save(passedTestAnswer1);
     }
 

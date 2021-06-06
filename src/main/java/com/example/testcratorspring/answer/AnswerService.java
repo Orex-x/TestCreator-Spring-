@@ -27,7 +27,6 @@ public class AnswerService {
         answer1.setGroupName(answer.getGroupName());
         answer1.setTitle(answer.getTitle());
         answer1.setIsTrue(answer.getIsTrue());
-        //answer1.setQuestions(answer.getQuestions());
         answerRepository.save(answer1);
     }
 
