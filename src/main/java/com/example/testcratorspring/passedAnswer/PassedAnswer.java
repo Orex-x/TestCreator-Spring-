@@ -10,19 +10,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "tblPASSED_ANSWER")
+@Table(name = "PassedAnswer")
 public class PassedAnswer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_passed_answer")
+    @Column(name = "Id")
     private Long id_passed_answer;
 
     @OneToOne
-    @JoinColumn(name = "question_id")
+    @JoinColumn(name = "QuestionId")
     private Question question;
 
-    @Column(name = "answer")
+    @Column(name = "Title")
     private String title;
 
     @ManyToMany(mappedBy = "passedAnswers")

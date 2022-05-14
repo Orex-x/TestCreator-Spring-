@@ -6,20 +6,20 @@ import com.example.testcratorspring.user.User;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tblAUTHOR")
+@Table(name = "TestUser")
 public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_author")
+    @Column(name = "Id")
     private Long id_author;
 
     @OneToOne
-    @JoinColumn(name = "test_id")
+    @JoinColumn(name = "TestsId")
     private Test test;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "UsersId")
     private User user;
 
 

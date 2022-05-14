@@ -8,25 +8,25 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "tblQUESTION")
+@Table(name = "Questions")
 public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_question")
+    @Column(name = "Id")
     private Long id_question;
-    @Column(name = "title")
+    @Column(name = "Title")
     private String title;
-    @Column(name = "mark")
+    @Column(name = "Mark")
     private Integer mark;
-    @Column(name = "num_true_answer")
+    @Column(name = "NumTrueAnswer")
     private Integer numTrueAnswer;
-    @Column(name = "is_check_box")
+    @Column(name = "IsCheckBox")
     private Boolean isCheckBox;
 
     @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE})
-    @JoinTable(name = "tblQUESTION_ANSWER", joinColumns = @JoinColumn(name = "question_id"),
-        inverseJoinColumns = @JoinColumn(name = "answer_id"))
+    @JoinTable(name = "AnswerQuestion", joinColumns = @JoinColumn(name = "QuestionsId"),
+        inverseJoinColumns = @JoinColumn(name = "AnswersId"))
     private Set<Answer> answers = new HashSet<>();
 
     @ManyToMany(mappedBy = "questions")

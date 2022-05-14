@@ -9,19 +9,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "tblTEST")
+@Table(name = "Tests")
 public class Test {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_test")
+    @Column(name = "Id")
     private Long idTest;
-    @Column(name = "title")
+    @Column(name = "Title")
     private String title;
 
     @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE})
-    @JoinTable(name = "tblTEST_QUESTION", joinColumns = @JoinColumn(name = "test_id"),
-            inverseJoinColumns = @JoinColumn(name = "question_id"))
+    @JoinTable(name = "QuestionTest", joinColumns = @JoinColumn(name = "TestsId"),
+            inverseJoinColumns = @JoinColumn(name = "QuestionsId"))
     private Set<Question> questions = new HashSet<>();
 
     @ManyToMany(mappedBy = "tests")

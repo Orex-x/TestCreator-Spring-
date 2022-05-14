@@ -6,22 +6,23 @@ import com.example.testcratorspring.user.User;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tblUSER_GROUP")
+@Table(name = "UserGroups")
 public class UserGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JoinColumn(name = "Id")
     private Long id_user_group;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "UserId")
     private User user;
 
     @OneToOne
-    @JoinColumn(name = "group_id")
+    @JoinColumn(name = "GroupId")
     private Group group;
 
-    @Column(name = "is_admin")
+    @Column(name = "IsAdmin")
     private boolean is_admin;
 
     public UserGroup() {

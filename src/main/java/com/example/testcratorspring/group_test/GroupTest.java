@@ -6,20 +6,20 @@ import com.example.testcratorspring.test.Test;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tblGROUP_TEST")
+@Table(name = "GroupTest")
 public class GroupTest {
 
     @Id
-    @Column(name = "id_group_test")
+    @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_group_test;
 
     @OneToOne
-    @JoinColumn(name = "group_id")
+    @JoinColumn(name = "GroupsId")
     private Group group;
 
     @OneToOne
-    @JoinColumn(name = "test_id")
+    @JoinColumn(name = "TestsId")
     private Test test;
 
     public GroupTest(Group group, Test test) {

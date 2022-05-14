@@ -5,25 +5,25 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "tblGROUP")
+@Table(name = "Groups")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_group")
+    @Column(name = "Id")
     private Long id_group;
-    @Column(name = "group_name")
+    @Column(name = "Name")
     private String name;
-    @Column(name = "group_password")
+    @Column(name = "Password")
     private String password;
-    @Column(name = "security_status")
+    @Column(name = "Security_status")
     private String security_status;
-    @Column(name = "invitation_link")
+    @Column(name = "InvitationLink")
     private String invitationLink;
 
 
     @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE})
-    @JoinTable(name = "tblGROUP_TEST", joinColumns = @JoinColumn(name = "group_id"),
-            inverseJoinColumns = @JoinColumn(name = "test_id"))
+    @JoinTable(name = "GroupTest", joinColumns = @JoinColumn(name = "GroupsId"),
+            inverseJoinColumns = @JoinColumn(name = "TestsId"))
     private Set<Test> tests = new HashSet<>();
 
 

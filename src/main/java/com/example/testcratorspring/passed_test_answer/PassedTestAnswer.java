@@ -7,20 +7,20 @@ import com.example.testcratorspring.question.Question;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tblPASSED_TEST_ANSWER")
+@Table(name = "PassedAnswerPassedTest")
 public class PassedTestAnswer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_passed_test_answer")
+    @Column(name = "Id")
     private Long id_passed_test_answer;
 
     @OneToOne
-    @JoinColumn(name = "passed_answer_id")
+    @JoinColumn(name = "PassedAnswersId")
     PassedAnswer passedAnswer;
 
     @OneToOne
-    @JoinColumn(name = "passed_test_id")
+    @JoinColumn(name = "PassedTestId")
     PassedTest passedTest;
 
 

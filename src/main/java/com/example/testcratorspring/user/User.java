@@ -8,51 +8,68 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "tblUSER")
+@Table(name = "Users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user")
+    @Column(name = "Id")
     private Long id_user;
-    @Column(name = "first_name")
+    @Column(name = "First_name")
     private String first_name;
-    @Column(name = "surname")
+    @Column(name = "Surname")
     private String surname;
-    @Column(name = "last_name")
+    @Column(name = "Last_name")
     private String last_name;
-    @Column(name = "user_login")
+    @Column(name = "Login")
     private String login;
-    @Column(name = "user_password")
+    @Column(name = "Password")
     private String password;
-    @Column(name = "user_email")
+    @Column(name = "Email")
     private String email;
-    @Column(name = "user_activation_code")
+    @Column(name = "ActivationCode")
     private String activationCode;
+    @Column(name = "Active")
+    private boolean active;
+
+
+
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "tblAUTHOR", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "test_id"))
+    @JoinTable(name = "TestUser", joinColumns = @JoinColumn(name = "UsersId"),
+            inverseJoinColumns = @JoinColumn(name = "TestsId"))
     private Set<Test> tests = new HashSet<>();
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "tblUSER_PASSED_TEST", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "passed_test_id"))
+    @JoinTable(name = "PassedTestUser", joinColumns = @JoinColumn(name = "UsersId"),
+            inverseJoinColumns = @JoinColumn(name = "PassedTestsId"))
     private Set<PassedTest> passedTests = new HashSet<>();
 
 
     public User() {
     }
 
-    public User(String first_name, String surname, String last_name, String login,
-                String password, String email, String user_activation_code) {
+
+    public User(String first_name, String surname,
+                String last_name, String login,
+                String password, String email, String
+            activationCode, boolean active) {
         this.first_name = first_name;
         this.surname = surname;
         this.last_name = last_name;
         this.login = login;
         this.password = password;
         this.email = email;
-        this.activationCode = user_activation_code;
+        this.activationCode = activationCode;
+        this.active = active;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public void setId_user(Long id_user) {

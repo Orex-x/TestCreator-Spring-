@@ -7,20 +7,20 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tblUSER_PASSED_TEST")
+@Table(name = "PassedTestUser")
 public class UserPassedTest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_user_passed_test")
+    @Column(name = "Id")
     private Long id_user_passed_test;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "UsersId")
     private User user;
 
     @OneToOne
-    @JoinColumn(name = "passed_test_id")
+    @JoinColumn(name = "PassedTestsId")
     private PassedTest passedTest;
 
     public UserPassedTest(User user, PassedTest passedTest) {

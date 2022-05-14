@@ -100,8 +100,8 @@ public class UserService {
         user.setActivationCode(UUID.randomUUID().toString());
         String message = String.format(
                 "Hello %s! \n" +
-                        "Welcome to the cu..., TestCreator\n" +
-                        "Tap this link: http://192.168.0.147:8080/users/activation/%s",
+                        "Welcome to TestCreator\n" +
+                        "Tap this link: http://localhost:8080/users/activation/%s",
                 user.getFirst_name(),
                 user.getActivationCode()
         );
@@ -138,6 +138,7 @@ public class UserService {
         if(user == null)
             return false;
         user.setActivationCode(null);
+        user.setActive(true);
         userRepository.save(user);
         return true;
     }

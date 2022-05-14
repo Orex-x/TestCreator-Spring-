@@ -12,18 +12,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "tblPASSED_TEST")
+@Table(name = "PassedTests")
 public class PassedTest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_passed_test")
+    @Column(name = "Id")
     private Long id_passed_test;
 
     @OneToOne
-    @JoinColumn(name = "test_id")
+    @JoinColumn(name = "TestId")
     private Test test;
 
-    @Column(name = "result")
+    @Column(name = "Result")
     private Double result;
 
     @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE})

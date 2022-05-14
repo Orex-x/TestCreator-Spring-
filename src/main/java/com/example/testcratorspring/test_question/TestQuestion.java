@@ -6,19 +6,19 @@ import com.example.testcratorspring.test.Test;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tblTEST_QUESTION")
+@Table(name = "QuestionTest")
 public class TestQuestion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_test_question")
+    @Column(name = "Id")
     private Long id_test_question;
 
     @OneToOne
-    @JoinColumn(name = "test_id")
+    @JoinColumn(name = "TestsId")
     private Test test;
 
     @OneToOne
-    @JoinColumn(name = "question_id")
+    @JoinColumn(name = "QuestionsId")
     private Question question;
 
 

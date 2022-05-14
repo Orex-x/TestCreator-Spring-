@@ -16,7 +16,9 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/users")
-    public Iterable<User> getAllPost(){return userService.getAllUser();}
+    public Iterable<User> getAllPost(){
+        return userService.getAllUser();
+    }
 
     @RequestMapping(value = "/users/id/{Id}")
     public Optional<User> getUserbyId(@PathVariable String Id){

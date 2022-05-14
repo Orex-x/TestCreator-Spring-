@@ -7,18 +7,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "tblANSWER")
+@Table(name = "Answers")
 public class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_answer")
+    @Column(name = "Id")
     private Long id_answer;
-    @Column(name = "title")
+    @Column(name = "Title")
     private String title;
-    @Column(name = "group_name")
+    @Column(name = "GroupName")
     private String groupName;
-    @Column(name = "is_true")
+    @Column(name = "IsTrue")
     private Boolean isTrue;
 
     @ManyToMany(mappedBy = "answers")
