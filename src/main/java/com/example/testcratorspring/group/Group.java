@@ -10,7 +10,7 @@ public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
-    private Long id_group;
+    private Long id;
     @Column(name = "Name")
     private String name;
     @Column(name = "Password")
@@ -38,11 +38,11 @@ public class Group {
     }
 
     public void setId_group(Long id_group) {
-        this.id_group = id_group;
+        this.id = id_group;
     }
 
     public Long getId_group() {
-        return id_group;
+        return id;
     }
 
     public String getName() {

@@ -1,4 +1,4 @@
-package com.example.testcratorspring.author;
+package com.example.testcratorspring.test_user;
 
 import com.example.testcratorspring.test.Test;
 import com.example.testcratorspring.user.User;
@@ -7,12 +7,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "TestUser")
-public class Author {
+public class TestUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
-    private Long id_author;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "TestsId")
@@ -23,21 +23,21 @@ public class Author {
     private User user;
 
 
-    public Author() {
+    public TestUser() {
     }
 
-    public Author(Test test, User user) {
+    public TestUser(Test test, User user) {
         this.test = test;
         this.user = user;
     }
 
     public void setId_author(Long id_author) {
-        this.id_author = id_author;
+        this.id = id_author;
     }
 
 
     public Long getId_author() {
-        return id_author;
+        return id;
     }
 
     public Test getTest() {

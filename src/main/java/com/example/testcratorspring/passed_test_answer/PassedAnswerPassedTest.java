@@ -2,50 +2,48 @@ package com.example.testcratorspring.passed_test_answer;
 
 import com.example.testcratorspring.passedAnswer.PassedAnswer;
 import com.example.testcratorspring.passed_test.PassedTest;
-import com.example.testcratorspring.question.Question;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "PassedAnswerPassedTest")
-public class PassedTestAnswer {
+public class PassedAnswerPassedTest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
-    private Long id_passed_test_answer;
+    private Long id;
 
     @OneToOne
-    @JoinColumn(name = "PassedAnswersId")
-    PassedAnswer passedAnswer;
+    PassedAnswer passedAnswersId;
 
     @OneToOne
     @JoinColumn(name = "PassedTestId")
     PassedTest passedTest;
 
 
-    public PassedTestAnswer(PassedAnswer passedAnswer, PassedTest passedTest) {
-        this.passedAnswer = passedAnswer;
+    public PassedAnswerPassedTest(PassedAnswer passedAnswersId, PassedTest passedTest) {
+        this.passedAnswersId = passedAnswersId;
         this.passedTest = passedTest;
     }
 
-    public PassedTestAnswer() {
+    public PassedAnswerPassedTest() {
     }
 
     public void setId_passed_test_answer(Long id_passed_test_answer) {
-        this.id_passed_test_answer = id_passed_test_answer;
+        this.id = id_passed_test_answer;
     }
 
     public Long getId_passed_test_answer() {
-        return id_passed_test_answer;
+        return id;
     }
 
-    public PassedAnswer getPassedAnswer() {
-        return passedAnswer;
+    public PassedAnswer getPassedAnswersId() {
+        return passedAnswersId;
     }
 
-    public void setPassedAnswer(PassedAnswer passedAnswer) {
-        this.passedAnswer = passedAnswer;
+    public void setPassedAnswersId(PassedAnswer passedAnswer) {
+        this.passedAnswersId = passedAnswer;
     }
 
     public PassedTest getPassedTest() {

@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface PassedTestAnswerRepository extends CrudRepository<PassedTestAnswer, Long> {
+public interface PassedAnswerPassedTestRepository extends CrudRepository<PassedAnswerPassedTest, Long> {
 }

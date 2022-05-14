@@ -12,7 +12,7 @@ public class UserGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JoinColumn(name = "Id")
-    private Long id_user_group;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "UserId")
@@ -35,12 +35,12 @@ public class UserGroup {
     }
 
     public void setId_user_group(Long id_user_group) {
-        this.id_user_group = id_user_group;
+        this.id = id_user_group;
     }
 
 
     public Long getId_user_group() {
-        return id_user_group;
+        return id;
     }
 
     public User getUser() {

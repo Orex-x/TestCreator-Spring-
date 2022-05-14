@@ -1,7 +1,5 @@
-package com.example.testcratorspring.author;
+package com.example.testcratorspring.test_user;
 
-import com.example.testcratorspring.author.Author;
-import com.example.testcratorspring.author.AuthorRepository;
 import com.example.testcratorspring.test.Test;
 import com.example.testcratorspring.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,32 +10,32 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AuthorService {
+public class TestUserService {
     @Autowired
-    private AuthorRepository authorRepository;
+    private TestUserRepository authorRepository;
 
-    public Iterable<Author> getAllAuthor(){
+    public Iterable<TestUser> getAllAuthor(){
         return authorRepository.findAll();
     }
 
-    public Optional<Author> getAuthor(String id){
+    public Optional<TestUser> getAuthor(String id){
         return authorRepository.findById(Long.parseLong(id));
     }
-    public void addAuthor(Author author){
+    public void addAuthor(TestUser author){
         authorRepository.save(author);
     }
 
-    public void addAuthor(String id, Author author){
-        Author author1 = getAuthor(id).get();
+    public void addAuthor(String id, TestUser author){
+        TestUser author1 = getAuthor(id).get();
         author1.setTest(author.getTest());
         author1.setUser(author.getUser());
         authorRepository.save(author1);
     }
 
     public List<Test> getAllAuthorByUser(User user){
-        List<Author> authors = authorRepository.findByUser(user);
+        List<TestUser> authors = authorRepository.findByUser(user);
         List<Test> tests = new ArrayList<>();
-        for(Author author : authors){
+        for(TestUser author : authors){
             tests.add(author.getTest());
         }
         return tests;
@@ -46,18 +44,4 @@ public class AuthorService {
     public void deleteAuthor(String id){
         authorRepository.deleteById(Long.parseLong(id));
     }
-
-/*
-
-    public List<Test> getAllTestByUser(User user){
-        List<Test> testList = new ArrayList<>();
-        List<Author> authors = authorRepository.findByUser(user);
-
-        for (Author a : authors) {
-            testList.add(a.getTest());
-        }
-        return testList;
-    }
-*/
-
 }

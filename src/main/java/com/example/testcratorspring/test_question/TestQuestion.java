@@ -11,7 +11,7 @@ public class TestQuestion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
-    private Long id_test_question;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "TestsId")
@@ -31,12 +31,12 @@ public class TestQuestion {
     }
 
     public void setId_test_question(Long id_test_question) {
-        this.id_test_question = id_test_question;
+        this.id = id_test_question;
     }
 
 
     public Long getId_test_question() {
-        return id_test_question;
+        return id;
     }
 
     public Test getTest() {

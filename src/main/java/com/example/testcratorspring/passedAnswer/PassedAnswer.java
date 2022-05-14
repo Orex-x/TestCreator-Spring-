@@ -10,13 +10,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "PassedAnswer")
+@Table(name = "PassedAnswers")
 public class PassedAnswer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
-    private Long id_passed_answer;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "QuestionId")
@@ -39,11 +39,11 @@ public class PassedAnswer {
     }
 
     public Long getId_passed_answer() {
-        return id_passed_answer;
+        return id;
     }
 
     public void setId_passed_answer(Long id_passed_answer) {
-        this.id_passed_answer = id_passed_answer;
+        this.id = id_passed_answer;
     }
 
     public Question getQuestion() {

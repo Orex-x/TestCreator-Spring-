@@ -1,8 +1,7 @@
 package com.example.testcratorspring.passed_test;
 
 import com.example.testcratorspring.passedAnswer.PassedAnswer;
-import com.example.testcratorspring.passed_test_answer.PassedTestAnswer;
-import com.example.testcratorspring.passed_test_answer.PassedTestAnswerRepository;
+import com.example.testcratorspring.passed_test_answer.PassedAnswerPassedTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,7 @@ public class PassedTestService {
     private PassedTestRepository passedTestRepository;
 
     @Autowired
-    private PassedTestAnswerRepository passedTestAnswerRepository;
+    private PassedAnswerPassedTestRepository passedAnswerPassedTestRepository;
 
     public Iterable<PassedTest> getAllPassedTest(){
         return passedTestRepository.findAll();

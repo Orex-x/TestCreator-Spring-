@@ -15,7 +15,7 @@ public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
-    private Long idTest;
+    private Long id;
     @Column(name = "Title")
     private String title;
 
@@ -39,12 +39,12 @@ public class Test {
     }
 
     public void setIdTest(Long id_test) {
-        this.idTest = id_test;
+        this.id = id_test;
     }
 
 
     public Long getIdTest() {
-        return idTest;
+        return id;
     }
 
     public String getTitle() {

@@ -13,7 +13,7 @@ public class QuestionAnswer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
-    private Long id_question_answer;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "QuestionsId")
@@ -33,12 +33,12 @@ public class QuestionAnswer {
     }
 
     public void setId_question_answer(Long id_question_answer) {
-        this.id_question_answer = id_question_answer;
+        this.id = id_question_answer;
     }
 
 
     public Long getId_question_answer() {
-        return id_question_answer;
+        return id ;
     }
 
     public Question getQuestion() {

@@ -137,7 +137,7 @@ public class UserService {
         User user = userRepository.findByActivationCode(code);
         if(user == null)
             return false;
-        user.setActivationCode(null);
+        user.setActivationCode("");
         user.setActive(true);
         userRepository.save(user);
         return true;

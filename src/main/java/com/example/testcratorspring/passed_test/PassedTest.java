@@ -1,9 +1,7 @@
 package com.example.testcratorspring.passed_test;
 
-import com.example.testcratorspring.answer.Answer;
 import com.example.testcratorspring.passedAnswer.PassedAnswer;
-import com.example.testcratorspring.passed_test_answer.PassedTestAnswer;
-import com.example.testcratorspring.question.Question;
+import com.example.testcratorspring.passed_test_answer.PassedAnswerPassedTest;
 import com.example.testcratorspring.test.Test;
 import com.example.testcratorspring.user.User;
 
@@ -17,7 +15,7 @@ public class PassedTest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
-    private Long id_passed_test;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "TestId")
@@ -27,8 +25,8 @@ public class PassedTest {
     private Double result;
 
     @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE})
-    @JoinTable(name = "tblPASSED_TEST_ANSWER", joinColumns = @JoinColumn(name = "passed_test_id"),
-            inverseJoinColumns = @JoinColumn(name = "passed_answer_id"))
+    @JoinTable(name = "PassedAnswerPassedTest", joinColumns = @JoinColumn(name = "passed_tests_id"),
+            inverseJoinColumns = @JoinColumn(name = "passed_answers_id"))
     private Set<PassedAnswer> passedAnswers = new HashSet<>();
 
 
@@ -40,18 +38,18 @@ public class PassedTest {
     public PassedTest() {
     }
 
-    public PassedTest(Test test, Double result, Set<PassedTestAnswer> passedTestAnswers) {
+    public PassedTest(Test test, Double result, Set<PassedAnswerPassedTest> passedAnswerPassedTests) {
         this.test = test;
         this.result = result;
     }
 
     public void setId_passed_test(Long id_passed_test) {
-        this.id_passed_test = id_passed_test;
+        this.id = id_passed_test;
     }
 
 
     public Long getId_passed_test() {
-        return id_passed_test;
+        return id;
     }
 
     public Test getTest() {

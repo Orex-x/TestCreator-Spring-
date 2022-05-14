@@ -1,4 +1,4 @@
-package com.example.testcratorspring.author;
+package com.example.testcratorspring.test_user;
 
 import com.example.testcratorspring.test.Test;
 import com.example.testcratorspring.user.User;
@@ -9,20 +9,20 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class AuthorController {
+public class TestUserController {
     @Autowired
-    private AuthorService authorService;
+    private TestUserService authorService;
 
     @RequestMapping(value = "/authors")
-    public Iterable<Author> getAllPost(){return authorService.getAllAuthor();}
+    public Iterable<TestUser> getAllPost(){return authorService.getAllAuthor();}
 
     @RequestMapping(value = "/authors/{Id}")
-    public Optional<Author> getAuthor(@PathVariable String Id){
+    public Optional<TestUser> getAuthor(@PathVariable String Id){
         return authorService.getAuthor(Id);
     }
 
     @RequestMapping(value = "/authors", method = RequestMethod.POST)
-    public void addAuthor(@RequestBody Author author){
+    public void addAuthor(@RequestBody TestUser author){
         authorService.addAuthor(author);
     }
 
@@ -34,7 +34,7 @@ public class AuthorController {
 
     @RequestMapping(value = "/authors/{Id}" , method = RequestMethod.PUT)
     public void updateAuthor(@PathVariable ("Id") String id,
-                            @RequestBody Author author){
+                            @RequestBody TestUser author){
         authorService.addAuthor(id, author);
     }
 

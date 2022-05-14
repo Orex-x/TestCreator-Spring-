@@ -13,7 +13,7 @@ public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
-    private Long id_answer;
+    private Long id;
     @Column(name = "Title")
     private String title;
     @Column(name = "GroupName")
@@ -34,11 +34,11 @@ public class Answer {
     }
 
     public void setId_answer(Long id_answer) {
-        this.id_answer = id_answer;
+        this.id = id_answer;
     }
 
     public Long getId_answer() {
-        return id_answer;
+        return id;
     }
 
     public String getTitle() {
