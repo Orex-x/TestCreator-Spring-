@@ -75,4 +75,16 @@ public class UserController {
     public boolean activate(@PathVariable String code){
        return userService.activateUser(code);
     }
+
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String getIndex(){
+        return "Это бэкенд, сайта тут нет." +
+                " С разработчиком можно связаться по <a href='https://t.me/OreX_x'>телеграму</a>";
+    }
+
+    @RequestMapping(value = "/uninstallPage", method = RequestMethod.GET)
+    public String getUninstallPage(){
+        return "Спасибо что были с нами." +
+                " С разработчиком можно связаться по <a href='https://t.me/OreX_x'>телеграму</a>";
+    }
 }
