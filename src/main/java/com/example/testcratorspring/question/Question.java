@@ -2,6 +2,7 @@ package com.example.testcratorspring.question;
 
 import com.example.testcratorspring.answer.Answer;
 import com.example.testcratorspring.test.Test;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -32,6 +33,8 @@ public class Question {
     @ManyToMany(mappedBy = "questions")
     private Set<Test> tests = new HashSet<>();
 
+
+
     public Question() {
     }
 
@@ -41,6 +44,33 @@ public class Question {
         this.mark = mark;
         this.numTrueAnswer = numTrueAnswer;
         this.isCheckBox = id_check_box;
+    }
+
+
+    public Boolean getCheckBox() {
+        return isCheckBox;
+    }
+
+    public void setCheckBox(Boolean checkBox) {
+        isCheckBox = checkBox;
+    }
+
+/*
+    public Set<Test> getTests() {
+        return tests;
+    }
+
+    public void setTests(Set<Test> tests) {
+        this.tests = tests;
+    }
+*/
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setId_question(Long id_question) {

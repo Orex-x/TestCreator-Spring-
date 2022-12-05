@@ -2,6 +2,7 @@ package com.example.testcratorspring.user;
 
 import com.example.testcratorspring.passed_test.PassedTest;
 import com.example.testcratorspring.test.Test;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -31,7 +32,6 @@ public class User {
     private String activationCode;
     @Column(name = "Active")
     private boolean active;
-
 
 
 

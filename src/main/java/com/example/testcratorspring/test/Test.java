@@ -3,6 +3,9 @@ package com.example.testcratorspring.test;
 import com.example.testcratorspring.question.Question;
 import com.example.testcratorspring.user.User;
 import com.example.testcratorspring.group.Group;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -31,6 +34,30 @@ public class Test {
     private Set<Group> group = new HashSet<>();
 
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+   /* public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public Set<Group> getGroup() {
+        return group;
+    }
+
+    public void setGroup(Set<Group> group) {
+        this.group = group;
+    }
+*/
     public Test(String title) {
         this.title = title;
     }

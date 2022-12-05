@@ -96,7 +96,7 @@ public class UserService {
         if(user1 != null){
             return false;
         }
-        //user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+   /*     //user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActivationCode(UUID.randomUUID().toString());
         String message = String.format(
                 "Hello %s! \n" +
@@ -106,7 +106,7 @@ public class UserService {
                 user.getActivationCode()
         );
 
-        mailService.send(user.getEmail(), message);
+        mailService.send(user.getEmail(), message);*/
 
         userRepository.save(user);
         return true;

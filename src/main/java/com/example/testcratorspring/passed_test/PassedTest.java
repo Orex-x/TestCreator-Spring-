@@ -4,6 +4,9 @@ import com.example.testcratorspring.passedAnswer.PassedAnswer;
 import com.example.testcratorspring.passed_test_answer.PassedAnswerPassedTest;
 import com.example.testcratorspring.test.Test;
 import com.example.testcratorspring.user.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -34,6 +37,21 @@ public class PassedTest {
     @ManyToMany(mappedBy = "passedTests")
     private Set<User> users = new HashSet<>();
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+   /* public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }*/
 
     public PassedTest() {
     }

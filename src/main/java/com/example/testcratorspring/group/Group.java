@@ -1,5 +1,7 @@
 package com.example.testcratorspring.group;
 import com.example.testcratorspring.test.Test;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;

@@ -26,6 +26,7 @@ public class AnswerController {
     public void addAnswer(@RequestBody Answer answer){
         answerService.addAnswer(answer);
     }
+
     @RequestMapping(value = "/answers/{Id}" , method = RequestMethod.PUT)
     public void updateAnswer(@PathVariable ("Id") String id,
                            @RequestBody Answer answer){
